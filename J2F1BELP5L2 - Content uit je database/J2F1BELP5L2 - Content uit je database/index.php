@@ -24,7 +24,6 @@
 			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 			// set the PDO error mode to exception
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			echo "Connected successfully";
 		} catch(PDOException $e) {
 			echo "Connection failed: " . $e->getMessage();
 		}
@@ -32,9 +31,9 @@
 		return $conn;
 	}
 		
-		function getStuff() {
+		function getStuffAndConnect($id) {
 			$connection = connect();
-			$query = "SELECT * FROM onderwerpen";
+			$query = "SELECT * FROM onderwerpen where id = $id";
 
 			$statement = $connection->prepare($query);
 			$statement->execute();
@@ -45,14 +44,44 @@
 		}
 		
 		// <!-- Laat hier de content die je op hebt gehaald uit de database zien op de pagina. -->
-
-		$content = getStuff();
-		Foreach($content as $onderwerpen) {
-			echo $onderwerpen["name"];
+		if (array_key_exists('name', $_GET) && $_GET['name'] == 're4') {
+			$contentConnect = getStuffAndConnect(1);
+			Foreach($contentConnect as $onderwerpen) {
+				echo $onderwerpen["name"];
 		}
-	?>
-	
+	}	
+			else if (array_key_exists('name', $_GET) && $_GET['name'] == 'apex') {
 
+				$contentConnect = getStuffAndConnect(2);
+				Foreach($contentConnect as $onderwerpen) {
+					echo $onderwerpen["name"];
+			}
+		}
+
+				else if (array_key_exists('name', $_GET) && $_GET['name'] == 'for-honor') {
+
+				$contentConnect = getStuffAndConnect(3);
+				Foreach($contentConnect as $onderwerpen) {
+					echo $onderwerpen["name"];
+				}
+			}
+
+					else if (array_key_exists('name', $_GET) && $_GET['name'] == 'r6') {
+						
+						$contentConnect = getStuffAndConnect(4);
+						Foreach($contentConnect as $onderwerpen) {
+							echo $onderwerpen["name"];
+							echo "<br>";
+							echo "<br>";
+							echo $onderwerpen["description"];
+							}
+				}
+
+					else { ?>
+
+						<h1>Welkom! kies één van de games hierboven.</h1>
+
+					<?php } ?>
 
 	<!-- laad hier via php je footer in (vanuit je includes map)-->
 		<?php include('./includes/footer.php');?>
