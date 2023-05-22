@@ -37,7 +37,17 @@ body {
 }
 
 img {
+    display: flex;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1em;
     width: 20em;
+}
+
+.contentContainerDatabase {
+    padding: 1em;
+}
+
+footer {
+    margin-top: 1em;
 }

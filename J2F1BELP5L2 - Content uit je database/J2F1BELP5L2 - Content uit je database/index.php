@@ -47,33 +47,54 @@
 		if (array_key_exists('name', $_GET) && $_GET['name'] == 're4') {
 			$contentConnect = getStuffAndConnect(1);
 			Foreach($contentConnect as $onderwerpen) {
+				echo "<h1>";
 				echo $onderwerpen["name"];
-		}
+				echo "</h1>";
+				echo "<div class = 'contentContainerDatabase'>";
+				echo "<img src= ./images/re4.jpeg>";
+				echo $onderwerpen["description"];
+				echo "</div>";
+				}
 	}	
 			else if (array_key_exists('name', $_GET) && $_GET['name'] == 'apex') {
 
 				$contentConnect = getStuffAndConnect(2);
 				Foreach($contentConnect as $onderwerpen) {
+					echo "<h1>";
 					echo $onderwerpen["name"];
-			}
+					echo "</h1>";
+					echo "<div class = 'contentContainerDatabase'>";
+					echo "<img src= ./images/apex.jpeg>";
+					echo $onderwerpen["description"];
+					echo "</div>";
+					}
 		}
 
 				else if (array_key_exists('name', $_GET) && $_GET['name'] == 'for-honor') {
 
 				$contentConnect = getStuffAndConnect(3);
 				Foreach($contentConnect as $onderwerpen) {
+					echo "<h1>";
 					echo $onderwerpen["name"];
-				}
+					echo "</h1>";
+					echo "<div class = 'contentContainerDatabase'>";
+					echo "<img src= ./images/for-honor.jpeg>";
+					echo $onderwerpen["description"];
+					echo "</div>";
+					}
 			}
 
 					else if (array_key_exists('name', $_GET) && $_GET['name'] == 'r6') {
 						
 						$contentConnect = getStuffAndConnect(4);
 						Foreach($contentConnect as $onderwerpen) {
+							echo "<h1>";
 							echo $onderwerpen["name"];
-							echo "<br>";
-							echo "<br>";
+							echo "</h1>";
+							echo "<div class = 'contentContainerDatabase'>";
+							echo "<img src= ./images/r6.jpeg>";
 							echo $onderwerpen["description"];
+							echo "</div>";
 							}
 				}
 
